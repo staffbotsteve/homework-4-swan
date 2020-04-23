@@ -10,7 +10,10 @@ var pwdLength = prompt("Enter how long you would like your password to be (must 
 while (isNaN(pwdLength) || pwdLength < 8 || pwdLength > 128) {
     pwdLength = prompt("ERROR: Enter how long you would like your password to be (MUST be between 8-128 characters", "");
 }
+for (let index = 0; index < array.length; index++) {
+    const element = array[index];
 
+}
 // * Character type:
 
 //   * Special characters ([see examples](https://www.owasp.org/index.php/Password_special_characters))
