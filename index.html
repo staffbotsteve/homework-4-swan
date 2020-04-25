@@ -33,17 +33,16 @@
                         <div class="col-lg-12" id="btn" data-clipboard-text="1">
 
                             <form>
-                                <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Read-only password here...">
-                                </div>
-                                <div>
-                                    <h1 id="pwdRangeDisplay">8</h1>
-                                </div>
 
-                                <div class="slidecontainer">
-                                    <input type="range" min="8" max="128" value="8" class="slider" id="pwdRangeSlider">
+                                <!-- Password Value -->
+                                <div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Read-only password here..." id="passwordValue">
                                 </div>
-                                <h5>Slide to Select Number of Characters</h5>
+                                <!-- Password Length -->
+                                <div>
+                                    <h2>Length of Password</h2>
+                                    <h3 id="pwdRangeDisplay" style="font-size: 24;">0</h3>
+                                </div>
 
                                 <div class="col-lg-12 custom-control custom-checkbox text-lg-left">
                                     <input type="checkbox" class="custom-control-input" id="spCharCheck">
@@ -62,8 +61,12 @@
                                     <label class="custom-control-label" for="uprCharCheck">Uppercase Characters</label>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary" id="genPwd" onclick="genPassword">Generate Password</button>
-                                <button type="submit" class="btn btn-primary" id="copyPwd" onclick="copyFunction">Copy Password</button>
+                                <!-- <button type="submit" class="btn btn-primary" id="genPwd" onclick="genPassword">Generate Password</button>
+                                <button type="submit" class="btn btn-primary" id="copyPwd" onclick="copyFunction">Copy Password</button> -->
+
+                                <button type="submit" class="btn btn-primary" id="genPwd">Generate Password</button>
+                                <button type="submit" class="btn btn-primary" id="copyPwd">Copy Password</button>
+
 
                             </form>
 
@@ -77,7 +80,8 @@
 
     <!-- <script src="password.js"> -->
     <!-- <script src="password-new.js"> -->
-    <script src="password.js">
+    <!-- <script src="password-new.js"> </script> -->
+    <script src="password-new.js">
     </script>
 </body>
 
