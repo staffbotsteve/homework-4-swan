@@ -1,6 +1,9 @@
+// this function is used throughout to get a random number
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
-}
+};
+
+// create arrays for each of the four passowrd types 
 var spCharStr = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 var spCharList = spCharStr.split("");
 var numCharStr = "0123456789";
@@ -10,11 +13,21 @@ var lwrCharList = lwrCharStr.split("");
 var uprCharStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var uprCharList = uprCharStr.split("");
 
+// grab the document objects that are needed
 var spCharCheckEl = document.querySelector("#spCharCheck");
 var numCharCheckEl = document.querySelector("#numCharCheck");
 var lwrCharCheckEl = document.querySelector("#lwrCharCheck");
 var uprCharCheckEl = document.querySelector("#uprCharCheck");
+var slideEl = document.querySelector(".slidecontainer");
 
+console.log('slider value', slideEl.slider.value)
+
+// write the slider value to the document object
+function writePwdLength() {
+    event.preventDefault();
+    var pwdNumber = slideEl.value;
+    document.querySelector("pwdRangeDisplay").textContent = pwdNumber;
+}
 
 var spChar = spCharList[getRandomInt(spCharStr.length)];
 var numChar = numCharList[getRandomInt(numCharStr.length)];
@@ -95,6 +108,8 @@ buttonEl.addEventListener('copy', function(event) {
 });
 console.log('inputEl', inputEl);
 console.log('buttonEl', buttonEl);
+
+submitEl.addEventListener("click", addTip);
 // inputEl.select();
 // document.execCommand("copy");
 
