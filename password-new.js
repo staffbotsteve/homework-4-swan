@@ -14,10 +14,10 @@ var uprCharStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var uprCharList = uprCharStr.split("");
 
 // grab the document objects that are needed
-var spCharCheckEl = document.querySelector("#spCharCheck");
-var numCharCheckEl = document.querySelector("#numCharCheck");
-var lwrCharCheckEl = document.querySelector("#lwrCharCheck");
-var uprCharCheckEl = document.querySelector("#uprCharCheck");
+var spCharCheckEl = document.querySelector("input[id=spCharCheck]");
+var numCharCheckEl = document.querySelector("input[id=numCharCheck]");
+var lwrCharCheckEl = document.querySelector("input[id=lwrCharCheck]");
+var uprCharCheckEl = document.querySelector("input[id=uprCharCheck]");
 var slideEl = document.querySelector("#pwdRangeSlider");
 var copyPwdEl = document.querySelector("#copyPwd");
 var genPwdEl = document.querySelector("#genPwd");
@@ -26,27 +26,37 @@ var inputTags = document.querySelectorAll("input");
 var passwordValueEl = document.querySelector("#passwordValue");
 var passwordString = "";
 
+// get which of the chackboxes are 'checked'
+spCharCheckEl.addEventListener('change', function() {
+    if (this.checked) {
+        spCharCheckEl.setAttribute("data-check", "yes")
+    } else {
+        spCharCheckEl.setAttribute("data-check", "no")
+    };
+});
 
-// checkboxesSelectedEl[0] = Special
-// checkboxesSelectedEl[1] = Numeric
-// checkboxesSelectedEl[2] = Lower
-// checkboxesSelectedEl[3] = Uppooer
-var checkboxesEl = document.querySelectorAll('input[type=checkbox]');
-var checkboxesChecked = 0;
-console.log('checkboxesEl', checkboxesEl);
+numCharCheckEl.addEventListener('change', function() {
+    if (this.checked) {
+        numCharCheckEl.setAttribute("data-check", "yes")
+    } else {
+        numCharCheckEl.setAttribute("data-check", "no")
+    };
+});
 
-// save for data attributes from today's class
-// otherwise test the value in each checkbox
-
-
-for (let index = 0; index < checkboxesEl.length; index++) {
-    if (checkboxesEl.checked = 'true') {
-        checkboxesChecked = checkboxesChecked + 1;
-    }
-}
-
-console.log('checkboxesChecked', checkboxesChecked);
-
+lwrCharCheckEl.addEventListener('change', function() {
+    if (this.checked) {
+        lwrCharCheckEl.setAttribute("data-check", "yes")
+    } else {
+        lwrCharCheckEl.setAttribute("data-check", "no")
+    };
+});
+uprCharCheckEl.addEventListener('change', function() {
+    if (this.checked) {
+        uprCharCheckEl.setAttribute("data-check", "yes")
+    } else {
+        uprCharCheckEl.setAttribute("data-check", "no")
+    };
+});
 
 // Copy Password value
 copyPwdEl.addEventListener('click', function(event) {
@@ -67,6 +77,21 @@ copyPwdEl.addEventListener('click', function(event) {
 // Generate Password
 genPwdEl.addEventListener('click', function(event) {
     event.preventDefault();
+    var spCheck = spCharCheckEl.getAttribute("data-check");
+    var numCheck = numCharCheckEl.getAttribute("data-check");
+    var lwrCheck = lwrCharCheckEl.getAttribute("data-check");
+    var uprCheck = uprCharCheckEl.getAttribute("data-check");
+    var initialLength = 0;
+
+    if (spCheck = "yes") {
+        initialLength = initialLength + 1;
+        console.log('initialLength', initialLength);
+    };
+    if (numCheck = "yes") {
+        initialLength = initialLength + 1;
+        console.log('initialLength', initialLength);
+    };
+
     var spChar = spCharList[getRandomInt(spCharStr.length)];
     var numChar = numCharList[getRandomInt(numCharStr.length)];
     var lwrChar = lwrCharList[getRandomInt(numCharStr.length)];
